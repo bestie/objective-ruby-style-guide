@@ -88,7 +88,9 @@ Always use `#define_method`, Never use the `def` keyword.
 
 ### Parentheses
 
-Obviously always use paretheses when defining a method, LOL if you don't.
+Always use paretheses when defining or calling method that has arguments.
+
+Never use paretheses when the method has no arguments.
 
 ## Classes
 
