@@ -165,3 +165,31 @@ copy of your constant literals each time.
 
 * Even when frozen, inner values of the constant can be mutated
 * Anything at a static or class level should be avoided in an OO system
+
+### Inheritance
+
+Prefer object composition, avoid `super` keyword.
+
+### Structs
+
+Never inherit from a `Struct`. `Struct.new` actually returns a new anonymous
+class instance in the same way `Class.new` does.
+
+```ruby
+
+  # Objectively inferior
+
+  class ValueObject < Struct.new(:one, :two, :three)
+    VALUES = { one: "one" }.freeze
+  end
+
+  # Objectively superior
+
+  Thing = Struct.new(:one, :two, :three) {
+    define_method(:one) {
+      {
+        one: "one",
+      }
+    }
+  }
+```
