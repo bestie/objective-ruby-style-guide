@@ -1,8 +1,8 @@
-# The Objective Ruby Style-guide
+# The Objective Ruby Style Guide
 
-** This is a stub for the real style-guide, send pulls, argue with me etc. **
+** This is a work in progress, send pulls, create issues, argue with me etc. **
 
-The Objective Ruby Style-guide aims to provide guidance on Ruby coding style that is
+The Objective Ruby Style Guide aims to provide guidance on Ruby coding style that is
 based on objective fact and real benefits over more subjective reasons such as
 "I've always done it that way" or "I prefer the way that looks".
 
@@ -22,7 +22,7 @@ Like the open/closed principle but for diffs.
 ### Reduce use of keywords
 
 In Ruby everything is an object and almost everything is a method.
-This gives great power to its users. This style-guide will favour use of Ruby's
+This gives great power to its users. This style guide will favour use of Ruby's
 methods over its more mysterious keywords.
 
 ## Quoted strings
