@@ -1,6 +1,6 @@
 # The Objective Ruby Style Guide
 
-** This is a work in progress, send pulls, create issues, argue with me etc. **
+**This is a work in progress, send pulls, create issues, argue with me etc.**
 
 The Objective Ruby Style Guide aims to provide guidance on Ruby coding style that is
 based on objective fact and real benefits over more subjective reasons such as
@@ -31,11 +31,11 @@ Always use double quotes.
 
 ## More complex strings
 
-Always use `%{"a string that is maybe a quote"}`
+Always use `%{"a string that is maybe a quote"}`.
 
 ## Blocks
 
-Always use `{ }`, never use 'do end'
+Always use `{ }`, never use 'do end'.
 
 * Text editors are *MUCH* better at understanding braces
 * Chaining and functional operations are clearer
@@ -47,44 +47,41 @@ Always use `{ }`, never use 'do end'
 Always define collections across multiple lines, giving each element its own
 line. Elements must not share lines with their containing tokens `[{(`.
 
-* Always add a trailing comma to the last element *
+*Always add a trailing comma to the last element.*
 
 ```ruby
-  # Objectively inferior
-  [ "one", "two", "three" ]
+# Objectively inferior
+[ "one", "two", "three" ]
 
-  # Objectively superior
-  [
-    "one",
-    "two",
-    "three",
-  ]
+# Objectively superior
+[
+  "one",
+  "two",
+  "three",
+]
 ```
 
 ## Hashes
 
-Never use the `#[]` accessor method, Always use `#fetch` and `#store`
+Never use the `#[]` accessor method, Always use `#fetch` and `#store`.
 
 ## Methods
 
 ### Def keyword
 
-Always use `#define_method`, Never use the `def` keyword.
+Always use `#define_method`, never use the `def` keyword.
 
 ```ruby
-  # Objectively inferior
+# Objectively inferior
+def a_method(*args)
+  nil # LOL
+end
 
-  def a_method(*args)
-    nil # LOL
-  end
-
-  # Objectively superior
-
-  define_method(:a_method) { |*args|
-    nil # LOL
-  end
+# Objectively superior
+define_method(:a_method) { |*args|
+  nil # LOL
+}
 ```
-``ruby
 
 ### Parentheses
 
@@ -99,17 +96,15 @@ Never use paretheses when the method has no arguments.
 Never use the `class` keyword instead define classes in the following way.
 
 ```ruby
-  # Objectively inferior
+# Objectively inferior
+class Thing
+  # ...
+end
 
-  class Thing
-    # ...
-  end
-
-  # Objectively superior
-
-  Thing = Class.new {
-    # ...
-  }
+# Objectively superior
+Thing = Class.new {
+  # ...
+}
 ```
 
 * When anonymous classes need to be defined your syntax is the same
@@ -123,17 +118,15 @@ When the urge is too much, keep to the no `class` keyword rule, instead use
 `#class_eval`.
 
 ```ruby
-  # Objectively inferior
+# Objectively inferior
+class Thing
+  # I re-opened u but I can't even tell LOL
+end
 
-  class Thing
-    # I re-opened u but I can't even tell LOL
-  end
-
-  # Objectively superior
-
-  Thing.class_eval {
-    # I re-opened u for sure ROFL
-  }
+# Objectively superior
+Thing.class_eval {
+  # I re-opened u for sure ROFL
+}
 ```
 
 * Definition and re-opening cannot be confused
@@ -145,22 +138,19 @@ Never use class constants, instead define instance methods that return a new
 copy of your constant literals each time.
 
 ```ruby
+# Objectively inferior
+class Thing
+  VALUES = { one: "one" }.freeze
+end
 
-  # Objectively inferior
-
-  class Thing
-    VALUES = { one: "one" }.freeze
-  end
-
-  # Objectively superior
-
-  Thing = Class.new {
-    define_method(:one) {
-      {
-        one: "one",
-      }
+# Objectively superior
+Thing = Class.new {
+  define_method(:one) {
+    {
+      one: "one",
     }
   }
+}
 ```
 
 * Even when frozen, inner values of the constant can be mutated
@@ -176,20 +166,17 @@ Never inherit from a `Struct`. `Struct.new` actually returns a new anonymous
 class instance in the same way `Class.new` does.
 
 ```ruby
+# Objectively inferior
+class ValueObject < Struct.new(:one, :two, :three)
+  VALUES = { one: "one" }.freeze
+end
 
-  # Objectively inferior
-
-  class ValueObject < Struct.new(:one, :two, :three)
-    VALUES = { one: "one" }.freeze
-  end
-
-  # Objectively superior
-
-  Thing = Struct.new(:one, :two, :three) {
-    define_method(:one) {
-      {
-        one: "one",
-      }
+# Objectively superior
+Thing = Struct.new(:one, :two, :three) {
+  define_method(:one) {
+    {
+      one: "one",
     }
   }
+}
 ```
