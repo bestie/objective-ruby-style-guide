@@ -50,15 +50,15 @@ line. Elements must not share lines with their containing tokens `[{(`.
 *Always add a trailing comma to the last element.*
 
 ```ruby
-  # Objectively inferior
-  [ "one", "two", "three" ]
+# Objectively inferior
+[ "one", "two", "three" ]
 
-  # Objectively superior
-  [
-    "one",
-    "two",
-    "three",
-  ]
+# Objectively superior
+[
+  "one",
+  "two",
+  "three",
+]
 ```
 
 ## Hashes
@@ -72,17 +72,15 @@ Never use the `#[]` accessor method, Always use `#fetch` and `#store`.
 Always use `#define_method`, never use the `def` keyword.
 
 ```ruby
-  # Objectively inferior
+# Objectively inferior
+def a_method(*args)
+  nil # LOL
+end
 
-  def a_method(*args)
-    nil # LOL
-  end
-
-  # Objectively superior
-
-  define_method(:a_method) { |*args|
-    nil # LOL
-  }
+# Objectively superior
+define_method(:a_method) { |*args|
+  nil # LOL
+}
 ```
 
 ### Parentheses
@@ -98,17 +96,15 @@ Never use paretheses when the method has no arguments.
 Never use the `class` keyword instead define classes in the following way.
 
 ```ruby
-  # Objectively inferior
+# Objectively inferior
+class Thing
+  # ...
+end
 
-  class Thing
-    # ...
-  end
-
-  # Objectively superior
-
-  Thing = Class.new {
-    # ...
-  }
+# Objectively superior
+Thing = Class.new {
+  # ...
+}
 ```
 
 * When anonymous classes need to be defined your syntax is the same.
@@ -122,17 +118,15 @@ When the urge is too much, keep to the no `class` keyword rule, instead use
 `#class_eval`.
 
 ```ruby
-  # Objectively inferior
+# Objectively inferior
+class Thing
+  # I re-opened u but I can't even tell LOL
+end
 
-  class Thing
-    # I re-opened u but I can't even tell LOL
-  end
-
-  # Objectively superior
-
-  Thing.class_eval {
-    # I re-opened u for sure ROFL
-  }
+# Objectively superior
+Thing.class_eval {
+  # I re-opened u for sure ROFL
+}
 ```
 
 * Definition and re-opening cannot be confused.
@@ -144,22 +138,19 @@ Never use class constants, instead define instance methods that return a new
 copy of your constant literals each time.
 
 ```ruby
+# Objectively inferior
+class Thing
+  VALUES = { one: "one" }.freeze
+end
 
-  # Objectively inferior
-
-  class Thing
-    VALUES = { one: "one" }.freeze
-  end
-
-  # Objectively superior
-
-  Thing = Class.new {
-    define_method(:one) {
-      {
-        one: "one",
-      }
+# Objectively superior
+Thing = Class.new {
+  define_method(:one) {
+    {
+      one: "one",
     }
   }
+}
 ```
 
 * Even when frozen, inner values of the constant can be mutated.
@@ -175,20 +166,17 @@ Never inherit from a `Struct`. `Struct.new` actually returns a new anonymous
 class instance in the same way `Class.new` does.
 
 ```ruby
+# Objectively inferior
+class ValueObject < Struct.new(:one, :two, :three)
+  VALUES = { one: "one" }.freeze
+end
 
-  # Objectively inferior
-
-  class ValueObject < Struct.new(:one, :two, :three)
-    VALUES = { one: "one" }.freeze
-  end
-
-  # Objectively superior
-
-  Thing = Struct.new(:one, :two, :three) {
-    define_method(:one) {
-      {
-        one: "one",
-      }
+# Objectively superior
+Thing = Struct.new(:one, :two, :three) {
+  define_method(:one) {
+    {
+      one: "one",
     }
   }
+}
 ```
