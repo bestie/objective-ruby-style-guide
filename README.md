@@ -1,6 +1,6 @@
 # The Objective Ruby Style Guide
 
-** This is a work in progress, send pulls, create issues, argue with me etc. **
+**This is a work in progress, send pulls, create issues, argue with me etc.**
 
 The Objective Ruby Style Guide aims to provide guidance on Ruby coding style that is
 based on objective fact and real benefits over more subjective reasons such as
@@ -31,15 +31,15 @@ Always use double quotes.
 
 ## More complex strings
 
-Always use `%{"a string that is maybe a quote"}`
+Always use `%{"a string that is maybe a quote"}`.
 
 ## Blocks
 
-Always use `{ }`, never use 'do end'
+Always use `{ }`, never use 'do end'.
 
-* Text editors are *MUCH* better at understanding braces
-* Chaining and functional operations are clearer
-* Imperative operations like `#each` do not suffer
+* Text editors are *MUCH* better at understanding braces.
+* Chaining and functional operations are clearer.
+* Imperative operations like `#each` do not suffer.
 
 ## Collections
 
@@ -47,7 +47,7 @@ Always use `{ }`, never use 'do end'
 Always define collections across multiple lines, giving each element its own
 line. Elements must not share lines with their containing tokens `[{(`.
 
-* Always add a trailing comma to the last element *
+*Always add a trailing comma to the last element.*
 
 ```ruby
   # Objectively inferior
@@ -63,13 +63,13 @@ line. Elements must not share lines with their containing tokens `[{(`.
 
 ## Hashes
 
-Never use the `#[]` accessor method, Always use `#fetch` and `#store`
+Never use the `#[]` accessor method, Always use `#fetch` and `#store`.
 
 ## Methods
 
 ### Def keyword
 
-Always use `#define_method`, Never use the `def` keyword.
+Always use `#define_method`, never use the `def` keyword.
 
 ```ruby
   # Objectively inferior
@@ -82,9 +82,8 @@ Always use `#define_method`, Never use the `def` keyword.
 
   define_method(:a_method) { |*args|
     nil # LOL
-  end
+  }
 ```
-``ruby
 
 ### Parentheses
 
@@ -112,9 +111,9 @@ Never use the `class` keyword instead define classes in the following way.
   }
 ```
 
-* When anonymous classes need to be defined your syntax is the same
-* More Ruby (better language transparency / less VM Magic)
-* Forces you think about classes as objects
+* When anonymous classes need to be defined your syntax is the same.
+* More Ruby (better language transparency / less VM Magic).
+* Forces you think about classes as objects.
 
 ### Re-opening
 
@@ -136,8 +135,8 @@ When the urge is too much, keep to the no `class` keyword rule, instead use
   }
 ```
 
-* Definition and re-opening cannot be confused
-* Does not use any keywords
+* Definition and re-opening cannot be confused.
+* Does not use any keywords.
 
 ### Constants
 
@@ -163,8 +162,8 @@ copy of your constant literals each time.
   }
 ```
 
-* Even when frozen, inner values of the constant can be mutated
-* Anything at a static or class level should be avoided in an OO system
+* Even when frozen, inner values of the constant can be mutated.
+* Anything at a static or class level should be avoided in an OO system.
 
 ### Inheritance
 
