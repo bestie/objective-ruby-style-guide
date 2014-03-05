@@ -37,9 +37,9 @@ Always use `%{"a string that is maybe a quote"}`.
 
 Always use `{ }`, never use 'do end'.
 
-* Text editors are *MUCH* better at understanding braces.
-* Chaining and functional operations are clearer.
-* Imperative operations like `#each` do not suffer.
+* Text editors are *MUCH* better at understanding braces
+* Chaining and functional operations are clearer
+* Imperative operations like `#each` do not suffer
 
 ## Collections
 
@@ -107,9 +107,9 @@ Thing = Class.new {
 }
 ```
 
-* When anonymous classes need to be defined your syntax is the same.
-* More Ruby (better language transparency / less VM Magic).
-* Forces you think about classes as objects.
+* When anonymous classes need to be defined your syntax is the same
+* More Ruby (better language transparency / less VM Magic)
+* Forces you think about classes as objects
 
 ### Re-opening
 
@@ -129,8 +129,8 @@ Thing.class_eval {
 }
 ```
 
-* Definition and re-opening cannot be confused.
-* Does not use any keywords.
+* Definition and re-opening cannot be confused
+* Does not use any keywords
 
 ### Constants
 
@@ -153,8 +153,8 @@ Thing = Class.new {
 }
 ```
 
-* Even when frozen, inner values of the constant can be mutated.
-* Anything at a static or class level should be avoided in an OO system.
+* Even when frozen, inner values of the constant can be mutated
+* Anything at a static or class level should be avoided in an OO system
 
 ### Inheritance
 
