@@ -6,6 +6,8 @@ The Objective Ruby Style Guide aims to provide guidance on Ruby coding style tha
 based on objective fact and real benefits over more subjective reasons such as
 "I've always done it that way" or "I prefer the way that looks".
 
+The guide will not apply to declaritive DSL code.
+
 ## Goals
 
 ### Consistency
@@ -15,15 +17,15 @@ one for *an objective reason* and use that one *all the time*.
 
 ### Reduce churn
 
-Style that results in code that can be added to modified by simply adding lines
+Style that results in code that can be added to or modified by simply adding lines
 rather than changing existing ones will be preferred.
-Like the open/closed principle but for diffs.
 
 ### Reduce use of keywords
 
 In Ruby everything is an object and almost everything is a method.
 This gives great power to its users. This style guide will favour use of Ruby's
-methods over its more mysterious keywords.
+methods over its more mysterious keywords which often bypass calling methods
+you perhaps thought should be called.
 
 ## Quoted strings
 
