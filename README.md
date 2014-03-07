@@ -37,7 +37,7 @@ Always use `%{"a string that is maybe a quote"}`.
 
 ## Blocks
 
-Always use `{ }`, never use 'do end'.
+Always use `{ }`, never use `do; end`
 
 * Text editors are *MUCH* better at understanding braces
 * Chaining and functional operations are clearer
@@ -69,9 +69,9 @@ Never use the `#[]` accessor method, Always use `#fetch` and `#store`.
 
 ## Methods
 
-### Def keyword
+### `def` keyword
 
-Always use `#define_method`, never use the `def` keyword.
+Never use the `def keyword. Always use `#define_method`.
 
 ```ruby
 # Objectively inferior
@@ -87,7 +87,7 @@ define_method(:a_method) { |*args|
 
 ### Parentheses
 
-Always use paretheses when defining or calling method that has arguments.
+Always use paretheses when defining or calling a method which has arguments.
 
 Never use paretheses when the method has no arguments.
 
@@ -95,7 +95,7 @@ Never use paretheses when the method has no arguments.
 
 ### Definition / class keyword
 
-Never use the `class` keyword instead define classes in the following way.
+Never use the `class` keyword, Always use `Class.new`
 
 ```ruby
 # Objectively inferior
@@ -160,7 +160,7 @@ Thing = Class.new {
 
 ### Inheritance
 
-Prefer object composition, avoid `super` keyword.
+Prefer object composition, avoid the `super` keyword.
 
 ### Structs
 
@@ -174,11 +174,9 @@ class ValueObject < Struct.new(:one, :two, :three)
 end
 
 # Objectively superior
-Thing = Struct.new(:one, :two, :three) {
-  define_method(:one) {
-    {
-      one: "one",
-    }
+ValueObject = Struct.new(:one, :two, :three) {
+  define_method(:some_behaviour) {
+    # ooooh behave
   }
 }
 ```
