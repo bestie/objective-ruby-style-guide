@@ -71,7 +71,7 @@ Never use the `#[]` accessor method, Always use `#fetch` and `#store`.
 
 ### `def` keyword
 
-Never use the `def keyword. Always use `#define_method`.
+Never use the `def` keyword. Always use `#define_method`.
 
 ```ruby
 # Objectively inferior
