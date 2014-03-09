@@ -67,6 +67,24 @@ line. Elements must not share lines with their containing tokens `[{(`.
 
 Never use the `#[]` accessor method, Always use `#fetch` and `#store`.
 
+```ruby
+hash = { kitteh: "o hai" }
+
+# Objectively inferior
+doge = hash[:doge]
+
+doge.so_fetching
+
+# Some time later somewhere else in the code
+# =>  undefined method `so_fetching' for nil:NilClass (NoMethodError)
+
+# Objectively superior
+hash.fetch(:doge).so_fetching
+
+# Immediately raises
+# `fetch': key not found: :doge (KeyError)
+```
+
 ## Methods
 
 ### `def` keyword
