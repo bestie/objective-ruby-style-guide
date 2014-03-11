@@ -105,6 +105,10 @@ define_method(:a_method) { |*args|
 }
 ```
 
+* One way to define methods, statically and dynamincally
+* Uses a method rather than a keyword
+* Methods are defined with blocks which means every method is a lexically scoped closure
+
 ### Parentheses
 
 Always use paretheses when defining or calling a method which has arguments.
