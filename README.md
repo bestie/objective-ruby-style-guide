@@ -29,6 +29,9 @@ This gives great power to its users. This style guide will favour use of Ruby's
 methods over its more mysterious keywords which often bypass calling methods
 you perhaps thought should be called.
 
+This has the side effect of increased use of blocks which are an awesome Ruby
+feature.
+
 ## Quoted strings
 
 Always use double quotes.
