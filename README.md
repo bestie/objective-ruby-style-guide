@@ -2,6 +2,8 @@
 
 **This is a work in progress, send pulls, create issues, argue with me etc.**
 
+**This style guide makes no effort to improve readability which is to a large extent subjective and hard to measure.**
+
 The Objective Ruby Style Guide aims to provide guidance on Ruby coding style that is
 based on objective fact and real benefits over more subjective reasons such as
 "I've always done it that way" or "I prefer the way that looks".
