@@ -186,6 +186,14 @@ Thing = Class.new {
 
 Prefer object composition, avoid the `super` keyword.
 
+The recommended syntax for inheritance is
+
+```ruby
+Thing = Class.new(SuperThing) {
+  # ... specializations
+}
+```
+
 ### Structs
 
 Never inherit from a `Struct`. `Struct.new` actually returns a new anonymous
