@@ -8,7 +8,7 @@ The Objective Ruby Style Guide aims to provide guidance on Ruby coding style tha
 based on objective fact and real benefits over more subjective reasons such as
 "I've always done it that way" or "I prefer the way that looks".
 
-The guide will not apply to declaritive DSL code.
+The guide will not apply to declarative DSL code.
 
 ## Goals
 
