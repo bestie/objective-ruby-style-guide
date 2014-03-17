@@ -185,6 +185,22 @@ Thing = Class.new {
 * Even when frozen, inner values of the constant can be mutated
 * Anything at a static or class level should be avoided in an OO system
 
+### Namespacing and modules
+
+Similarly to classes, use `Module.new` for definition and `Module.module_eval`
+to re-open.
+
+Module and class constuctors yield themselves into the block, using this yielded
+value is better than using `self` as `self` isn't lexically scoped.
+
+```ruby
+MyThings = Module.new { |things|
+  things::Thing = Class.new { |klass|
+    # class body
+  }
+}
+```
+
 ### Inheritance
 
 Prefer object composition, avoid the `super` keyword.
