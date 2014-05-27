@@ -61,6 +61,20 @@ the method implementation for the `yield` keyword.
 Invokation with `#call` and presence test with `if block` enforce that blocks
 are always captured.
 
+```ruby
+# Objectively inferior
+def do_something_and_yield
+  do_something
+  yield if block_given?
+end
+
+# Objectively superior
+def do_something_and_yield(&block)
+  do_something
+  block.call if block
+end
+```
+
 ## Collections
 
 ### Spread collections across multiple lines
