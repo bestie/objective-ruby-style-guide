@@ -40,13 +40,26 @@ Always use double quotes.
 
 Always use `%{"a string that is maybe a quote"}`.
 
-## Blocks
+## Passing Blocks
 
 Always use `{ }`, never use `do; end`
 
 * Text editors are *MUCH* better at understanding braces
 * Chaining and functional operations are clearer
 * Imperative operations like `#each` do not suffer
+
+## Receiving a block and yielding
+
+Always capture blocks and invoke with `#call`.
+
+* Capture blocks with &block at the end of the method signature
+* Invoke them with `#call` passing yielded values as an argument
+* Test for presence with `if block` rather than `block_given?`
+
+This provides a consisent signal that a block argument is used over inspecting
+the method implementation for the `yield` keyword.
+Invokation with `#call` and presence test with `if block` enforce that blocks
+are always captured.
 
 ## Collections
 
